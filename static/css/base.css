@@ -3,8 +3,13 @@
     src: url(/static/fonts/sans.ttf) format('truetype');
 }
 
+@font-face {
+    font-family: "byekan";
+    src: url(/static/fonts/BYekan.ttf) format('truetype');
+}
+
 body {
-    font-family: 'sans', tahoma, sans-serif;;
+    font-family: 'byekan', sans, tahoma, sans-serif;;
     background-color: #f7f8fa;
     margin: 0 auto;
     padding: 0;
@@ -368,7 +373,7 @@ a {
     padding-top: 10px;
     margin-bottom: 10px;
     margin-top: 20px;
-    border-radius: 10px;
+    border-radius: 3px;
     border: 1px solid red;
     cursor: pointer;
     color: white;
@@ -382,7 +387,7 @@ a {
     padding-top: 10px;
     margin-bottom: 10px;
     margin-top: 20px;
-    border-radius: 10px;
+    border-radius: 3px;
     border: 1px solid red;
     cursor: pointer;
     color: white;
@@ -526,22 +531,199 @@ a {
 .right-top-slider {
     height: 300px;
     background-color: #ebebeb;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.right-slider-btn {
+    width: 100px;
+    height: 20px;
+
+    bottom: 0;
+    right: 250px;
+}
+
+.right-slider-btn div {
+    cursor: pointer;
+    border-radius: 50%;
+    margin-right: 5px;
+    width: 10px;
+    height: 10px;
+    background-color: white;
+    opacity: 0.5;
+}
+
+.right-slider-btn div:hover {
+    opacity: 1;
+}
+
+.news-box {
+    width: 100%;
+}
+
+.news-box .header {
+    width: 100%;
+    height: 35px;
+    overflow: hidden;
+}
+
+.news-box .header .header-text {
+    color: #5cbfee;
+    font-size: 22px;
+    margin-right: 16px;
+}
+
+.news-box .header hr {
+    width: 470px;
+    margin-top: 17px;
+    height: 1px;
+    border: none;
+    background-color: #5cbfee;
+}
+
+.news-box .top-box {
+    width: 560px;
+    margin-right: 16px;
+    border-bottom: 1px solid #afb1b3;
+    margin-top: 10px;
+    margin-left: 12px;
+    min-height: 185px;
+    box-sizing: border-box;
+    padding-bottom: 10px;
+    display: table;
+    margin-bottom: 10px;
+}
+
+.news-box .top-box .info-part {
+    width: 190px;
+    clear: both;
+
+}
+
+.news-box .top-box .info-part hr {
+    border: none;
+    height: 1px;
+    width: 177px;
+    background-color: #afb1b3;
+    margin-right: 0px;
+
+}
+
+.news-box .top-box .info-part .info-title {
+    width: 190px;
+    color: #6a6c6d;
+    text-align: right;
+    font-size: 14px;
+}
+
+.news-box .top-box .info-part .info-main {
+    color: #999c9e;
+    text-align: right;
+    font-size: 13px;
+    width: 176px;
+}
+
+.news-box .top-box .img-part {
+    width: 368px;
+    overflow: hidden;
+
+    border-radius: 3px;
+    height: 180px;
+
+}
+
+.news-box .items-box {
+    width: 560px;
+    overflow: hidden;
+}
+
+.news-box .items-box .news-item {
+    width: 280px;
+    min-height: 94px;
+}
+
+.news-box .items-box .news-item .img-item {
+    overflow: hidden;
+    border-radius: 5px;
+    width: 105px;
+    height: 63px;
+}
+
+.news-box .items-box .news-item .text-item {
+    box-sizing: border-box;
+    padding-right: 5px;
+    color: #808283;
+    font-size: 14px;
+    width: 175px;
+}
+
+.release {
+    width: 560px;
+    overflow: hidden;
+
+}
+
+.release .news-item {
+    width: 265px;
+    height: 150px;
+    overflow: hidden;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #989898;
+    margin-bottom: 20px;
+}
+
+.release .news-item:hover .news-item-text {
+    bottom: 0;
+
+}
+
+.release .news-item .news-item-img {
+    opacity: 0.5;
+    -webkit-transition: all ease .3s;
+    -moz-transition: all ease .3s;
+    -ms-transition: all ease .3s;
+    -o-transition: all ease .3s;
+    transition: all ease .3s;
+}
+
+.release .news-item:hover .news-item-img {
+    opacity: 1;
+
+}
+
+.release .news-item .news-item-text {
+    background-color: rgba(0, 0, 0, 0.26);
+    text-align: center;
+    -webkit-transition: all ease .3s;
+    -moz-transition: all ease .3s;
+    -ms-transition: all ease .3s;
+    -o-transition: all ease .3s;
+    transition: all ease .3s;
+    font-size: 15px;
+    color: white;
+    z-index: 11;
+    padding-top: 4px;
+    box-sizing: border-box;
+    bottom: -40px;
+    width: 100%;
+    height: 35px;
 }
 
 /*middle-column*/
 .middle-top-box {
     height: 300px;
-    background-color: red;
+    background-color: #ec4e7e;
 }
 
 /*left-column*/
 .left-top-slider {
     height: 148px;
-    background-color: blue;
+    background-color: #a6dcd9;
 }
 
 .left-top-box {
     height: 148px;
-    background-color: green;
+    background-color: #3fe8af;
     margin-top: 4px;
 }
