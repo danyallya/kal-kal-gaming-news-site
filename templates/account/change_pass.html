@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block CSS %}
+    {{ block.super }}
+    <style type="text/css">
+        .pop-box {
+            margin-top: 20px;
+        }
+
+        .pop-box .input {
+            margin-top: 30px;
+        }
+
+        .pop-box.success {
+            width: 400px;
+        }
+
+        .pop-box.success .header {
+            background: #46d58d;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+
+
+
+    <div class="radius mrg-center center pop-box{% if success %} success{% endif %}">
+
+
+        {% if success %}
+            <div class="header">
+                {{ message }}
+            </div>
+
+        {% else %}
+            <div class="header">
+                بازیابی رمز عبور
+            </div>
+
+            <div class="message red">
+                {{ message }}
+            </div>
+
+            <form action="" method="post">
+                {% csrf_token %}
+
+                <input type="hidden" name="next" value="{{ request.path }}">
+
+                <input type="password" name="password" class="forget-box center input"
+                       placeholder=" رمز عبور جدید"
+                       dir="ltr">
+                <input type="password" name="repassword" class="forget-box center input"
+                       placeholder=" تکرار رمز عبور جدید"
+                       dir="ltr">
+
+                <input type="submit" value="ارسال" class="bg-green submit radius">
+
+            </form>
+        {% endif %}
+    </div>
+{% endblock %}

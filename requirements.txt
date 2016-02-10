@@ -1,0 +1,13 @@
+django
+django-grappelli==2.7.1
+Pillow
+django-simple-captcha
+django-model-utils
+easy_thumbnails
+django-image-cropping
+django-colorful
+django-multiselectfield
+Django-Select2<5
+pymysql
+django-solo
+django-tinymce

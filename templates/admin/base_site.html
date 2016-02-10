@@ -1,0 +1,86 @@
+{% extends "admin/base.html" %}
+{% load i18n grp_tags %}
+
+{% block title %}{{ title }} | {% get_site_title %}{% endblock %}
+
+{% block branding %}
+    {# Use the div#grp-branding for branding elements, e.g. a logo #}
+    {# <div id="grp-branding"></div> #}
+{% endblock %}
+
+{% block extrahead %}
+    <script>
+        (function ($) {
+            $(document).ready(function () {
+                $(".add-related, .change-related").attr(
+                        "onclick",
+                        "event.preventDefault();grp.onclickRelatedWorkaround(this)"
+                )
+            });
+            grp.onclickRelatedWorkaround = function (el) {
+                if ($(el).attr("href") != null) {
+                    showAddAnotherPopup(el)
+                }
+            }
+        })(grp.jQuery);
+    </script>
+{% endblock %}
+
+{% block nav-global %}{% endblock %}
+
+
+{% block footer %}
+    <script>
+
+        if (typeof django_select2 != 'undefined')
+
+            django_select2.createSearchChoiceNew = function (term, data) {
+                if ($(data).filter(function () {
+                            return this.text.localeCompare(term) === 0;
+                        }).length === 0) {
+                    return {id: term, text: term, isNew: true};
+                }
+            };
+
+        if (typeof django_select2 != 'undefined')
+            django_select2.formatResult = function (term) {
+                if (term.isNew) {
+                    return ' ' + term.text + ' <span class="" style="color:red;">(جدید)</span>';
+                }
+                else {
+                    return term.text;
+                }
+            };
+
+
+        // fOR CalCulate the word count on text areas
+
+        function textareaWordChange() {
+            $('textarea').each(function () {
+                if ($(this).parent().find('.word-count').length == 0) {
+                    $(this).after('<span class="word-count">HIHIHI</span>');
+                }
+
+                var val = $(this).val().trim();
+                var count;
+                if (val)
+                    count = val.split(' ').length;
+                else
+                    count = 0;
+
+                $(this).parent().find('.word-count').html(" " + count + " کلمه");
+            });
+        }
+
+
+        $(document).ready(function () {
+            textareaWordChange();
+        });
+
+        $(document).on('input propertychange', 'textarea', function (e) {
+            textareaWordChange();
+        });
+
+    </script>
+
+{% endblock %}
