@@ -1,4 +1,4 @@
-"""fanoos URL Configuration
+"""kalkal URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/1.8/topics/http/urls/
@@ -28,7 +28,7 @@ if settings.ENABLE_SITE:
         # url(r'^account/', include('account.urls')),
 
 
-        url(r'^faq/$', 'account.views.faq', name='faq'),
+        url(r'^$', 'home.views.home', name='home'),
 
     ]
 

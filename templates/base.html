@@ -23,26 +23,25 @@
     <meta charset="utf-8">
 
     {% block CSS %}
+        <link rel="stylesheet" type="text/css" href="/static/css/base.css?v={{ SITE_VERSION }}"/>
         <link rel="stylesheet" type="text/css" href="/static/base.css?v={{ SITE_VERSION }}b"/>
     {% endblock %}
 
     {% block JS %}
         <script type="text/javascript" src="/static/jquery/jquery-1.11.2.min.js"></script>
-{#        <script type="text/javascript" src="/static/jquery/jQuery.loadScroll.js"></script>#}
-        {#        <script type="text/javascript" src="/static/jquery/jquery.nicescroll.min.js"></script>#}
 
         <script>
             var django = {jQuery: jQuery};
             var is_auth = {{ user.is_authenticated|yesno:"true,false" }};
-            var checkUrl = '{% url "check" %}';
-            var checkSignupUrl = '{% url "check_signup" %}';
-            var forgetUrl = '{% url "forget" %}';
-            var favUrl = '{% url "fav_ajax" %}';
-            var searchUrl = '{% url "search_sug" %}';
-            var sendConfirmEmailUrl = '{% url "send_confirm_link" %}';
+{#            var checkUrl = '{% url "check" %}';#}
+{#            var checkSignupUrl = '{% url "check_signup" %}';#}
+{#            var forgetUrl = '{% url "forget" %}';#}
+{#            var favUrl = '{% url "fav_ajax" %}';#}
+{#            var searchUrl = '{% url "search_sug" %}';#}
+{#            var sendConfirmEmailUrl = '{% url "send_confirm_link" %}';#}
         </script>
 
-        <script type="text/javascript" src="/static/base.js?v={{ SITE_VERSION }}c"></script>
+        <script type="text/javascript" src="/static/js/base.js?v={{ SITE_VERSION }}c"></script>
     {% endblock %}
 
 
@@ -51,471 +50,43 @@
 <body class="main_container">
 
 
-<header id="header" class="mrg-center ">
-    <div class="main-width mrg-center relative">
-        <div id="logo-box" class="right">
-            <a href="{% url "home" %}"><img id="logo-box-img" src="/static/images/logo.png" width="191" height="58"></a>
-        </div>
-        <div class="absolute test-version"></div>
-        <div id="search-box" class="right">
+<header id="header">
+    <div class="header-line">
 
-            <div id="search">
-                <input class="right" id="search-text" placeholder="در میان هنرمندان، فیلم‌ها و مجموعه‌ها جست‌وجو کنید "
-                       value="{{ q|default:"" }}">
-                <select class="right" name="t" id="search-type">
-
-                    <option value="">
-                        همه
-                    </option>
-
-                    <option value="2" {% if t == '2' %}selected="selected"{% endif %}>
-                        هنرمندان
-                    </option>
-
-                    <option value="1">
-                        سریال ها
-                    </option>
-
-                    <option value="1">
-                        فیلم های سینمایی
-                    </option>
-
-                    <option value="1" {% if t == '1' %}selected="selected"{% endif %}>
-                        جست‌وجوی پیشرفته
-                    </option>
-
-                </select>
-
-                <div id="search-icon" class="left fire-search" data-url="{% url "search" %}">
-
-                </div>
-
-                <div class="search-auto-list absolute hidden">
-
-                    <div id="search-sug-items">
-
-                    </div>
-
-                    <a class="see-all right fire-search">
-                        دیدن تمام نتایج برای
-                        <span class=" red">"فلان چیزک"</span>
-                        »
-                    </a>
-                </div>
-
-            </div>
-        </div>
-
-        <div id="user-box" class="right">
-            <div id="user">
-                {% if user.is_authenticated %}
-                    <div class="user-text clear left">
-                        {{ user }}
-                        عزیز خوش آمدی!
-                    </div>
-
-                    <a class="red user-text clear left" href="{% url "profile" %}">
-                        حساب کاربری
-                    </a>
-
-                    <a class="red user-text left logout" href="{% url "logout" %}?next={{ request.path }}">
-                        خروج
-                    </a>
-
-                {% else %}
-                    <div id="user-login" class="right radius">
-                        <img class="user-login-logo" src="/static/images/login.png" width="24" height="24">
-
-                        <span class="user-login-text"> ورود</span>
-                    </div>
-                    <div id="user-signup" class="right signup radius">
-                        <div class="user-signup-logo"></div>
-
-                        <span class="user-login-text login-text-h"> ثبت نام در منظوم</span>
-                    </div>
-                {% endif %}
-            </div>
-        </div>
     </div>
+    <div class="header-box">
+        <div class="mrg-center main-width">
+            <div class="right header-items">
+                <div class="header-item right">
+                    <div class="consool-img "></div>
+                </div>
+                <div class="header-item right">
+                    <div class="pc-img">
+
+                    </div>
+                </div>
+                <div class="header-item right">
+                    <div class="android-img"></div>
+                </div>
+
+            </div>
+            <div class="right search">
+                <input class="right" id="search-text" placeholder="در میان هنرمندان،  و مجموعه‌ها جست‌وجو کنید "
+                       value="">
+
+                <div class="left search-btn">
+                    <div class="search-btn-img"></div>
+                </div>
+            </div>
+            <div class="left logo">
+                <img src="/static/images/logo.png" width="196" height="70">
+            </div>
+
+        </div>
+
+    </div>
+
 </header>
-
-
-<nav id="menu" class="table width">
-    <div class="mrg-center main-width">
-
-        <div id="menu-box-right" class="right relative menu-items black">
-            <a class="sens-bold" href="{% url "home" %}">
-                منظوم
-            </a>
-
-            <div class="absolute header-box  radius">
-
-                <div class="">
-                    <ul class="review-list">
-                        <li class="pointer right"><a href="{% url "about" %}" class=""> درباره ما</a></li>
-                        <li class="pointer right"><a href="{% url "contact" %}" class=" ">ارتباط با ما</a></li>
-
-                        <li class="pointer right"><a class="" href="{% url "faq" %}"> سوالات متداول</a>
-                        </li>
-                        <li class="pointer right"><a href="{% url "contact" %}" class=" ">تبلیغات در منظوم</a></li>
-                    </ul>
-                </div>
-
-            </div>
-        </div>
-
-
-        <div id="menu-box-center" class="right black">
-            <div class="menu-items right">
-                <a class="sens-bold" href="{% url "movies" %}?onshow=1">
-                    سینما
-                </a>
-
-                <div class="absolute header-box cinema-box radius">
-
-                    <a class="right now-show" href="{% url "movies" %}?onshow=1">
-                        <div class="relative">
-                            <div class="show-img-item absolute"></div>
-                            <img src="{{ new_show_movie.get_site_menu_image }}" class="pointer" width="133"
-                                 height="190">
-
-                        </div>
-                        <div class="show-text">
-                            در حال اکران
-                        </div>
-                    </a>
-
-                    {#                <div class="right tizzer-show">#}
-                    {#                    <div class="relative">#}
-                    {#                        <div class="show-img-item absolute"></div>#}
-                    {#                        <img src="/static/images/tizzer-img.png" class="pointer" width="284" height="190">#}
-                    {##}
-                    {#                        <div class="absolute tizzer-img"></div>#}
-                    {#                    </div>#}
-                    {#                    <div class="show-text">#}
-                    {#                        آخرین تیزرها#}
-                    {#                    </div>#}
-                    {#                </div>#}
-                    <div class="right">
-                        <ul class="show-list">
-
-                            <li class="pointer">
-                                <a href="{% url "50bestmovie" %}">
-                                    لیست 50 فیلم برتر
-                                </a>
-                            </li>
-                            {#                        <li class="pointer">فیلم‌ها بر اساس گونه/ژانر</li>#}
-                            <li class="pointer">
-                                <a href="{% url "movies" %}">
-                                    بانک فیلم
-                                </a>
-                            </li>
-                            {#                        <li class="pointer">بانک تیزر</li>#}
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <div class="menu-items right">
-                <a class="sens-bold" href="{% url "series" %}">
-                    تلویزیون
-                </a>
-
-                <div class="absolute header-box tv-box radius">
-
-                    <a class="right tizzer-show" href="{% url 'series' %}?onshow=1">
-                        <div class="relative">
-                            <div class="show-img-item absolute"></div>
-                            <img src="{{ last_telecast.get_site_tv_menu_image }}" class="pointer" width="284"
-                                 height="190">
-
-                        </div>
-                        <div class="show-text">
-                            تازه‌های پخش
-                        </div>
-                    </a>
-
-                    {#                <a class="right now-show" href="{% url "page" last_series.id %}">#}
-                    {#                    <div class="relative">#}
-                    {#                        <div class="show-img-item absolute"></div>#}
-                    {#                        <img src="{{ last_series.get_site_list_image }}" class="pointer" width="133" height="190">#}
-                    {##}
-                    {#                    </div>#}
-                    {#                    <div class="show-text">#}
-                    {#                        شبکه نمایش خانگی#}
-                    {#                    </div>#}
-                    {#                </a>#}
-
-                    <div class="right">
-                        <ul class="tv-list">
-
-                            {#                        <li class="pointer">در حال پخش</li>#}
-
-                            {#                        <li class="pointer">امشب روی آنتن</li>#}
-
-                            <li class="pointer">
-                                <a href="{% url "20bestseries" %}">
-                                    لیست 20 سریال برتر
-                                </a>
-                            </li>
-
-                            <li class="pointer">
-                                <a href="{% url "series" %}">
-                                    بانک سریال
-                                </a>
-                            </li>
-
-                            <li class="pointer">
-                                <a href="{% url "20besttel" %}">
-                                    لیست 20 برنامه برتر
-                                </a>
-                            </li>
-
-
-                            <li class="pointer">
-                                <a href="{% url "tvs" %}">
-                                    بانک برنامه ها
-                                </a>
-                            </li>
-
-                            {#                        <li class="pointer">سریال ها بر اساس گونه/ژانر</li>#}
-
-                        </ul>
-                    </div>
-
-                    {#                <div class="right">#}
-                    {#                    <ul class="tv-list">#}
-
-
-                    {#                        <li class="pointer">بانک تیتراژ</li>#}
-
-
-                    {#                        <li class="pointer">برنامه ها بر اساس گونه/ژانر</li>#}
-
-
-                    {#                    </ul>#}
-                    {#                </div>#}
-                </div>
-
-            </div>
-            <div class="menu-items right">
-                <a class="sens-bold" href="{% url "person_list" %}?f=&s=">
-                    هنرمندان
-                </a>
-
-                <div class="absolute header-box actors-box radius">
-
-
-                    <a class="right actors-show" href="{% url "person_list" %}?f=5&s=">
-                        <div class="relative">
-                            <div class="show-img-item absolute"></div>
-                            <img src="{{ random_actor.get_menu_image }}" class="pointer" width="133"
-                                 height="190">
-
-                        </div>
-                        <div class="actors-text">
-                            بازیگران
-                        </div>
-                    </a>
-
-                    <a class="right actors-show" href="{% url "person_list" %}?f=4&s=">
-                        <div class="relative">
-                            <div class="show-img-item absolute"></div>
-                            <img src="{{ random_director.get_menu_image }}" class="pointer" width="133"
-                                 height="190">
-
-                        </div>
-                        <div class="actors-text">
-                            کارگردانان
-                        </div>
-                    </a>
-
-                    <a class="right actors-show" href="{% url "person_list" %}?f=3&s=">
-                        <div class="relative">
-                            <div class="show-img-item absolute"></div>
-                            <img src="{{ random_author.get_menu_image }}" class="pointer" width="133"
-                                 height="190">
-
-                        </div>
-                        <div class="actors-text">
-                            نویسندگان
-                        </div>
-                    </a>
-
-                    <a class="right actors-show" href="{% url "person_list" %}?f=2&s=">
-                        <div class="relative">
-                            <div class="show-img-item absolute"></div>
-                            <img src="{{ random_composer.get_menu_image }}" class="pointer" width="133"
-                                 height="190">
-
-                        </div>
-                        <div class="actors-text">
-                            آهنگسازان
-                        </div>
-                    </a>
-
-                    <a class="right actors-show" href="{% url "person_list" %}?f=1&s=">
-                        <div class="relative">
-                            <div class="show-img-item absolute"></div>
-                            <img src="{{ random_camera.get_menu_image }}" class="pointer" width="133"
-                                 height="190">
-
-                        </div>
-                        <div class="actors-text no-border">
-                            فیلمبرداران
-                        </div>
-                    </a>
-
-
-                </div>
-
-            </div>
-
-            <div class="menu-items right">
-                <a class="sens-bold" href="{% url 'reviews' %}">
-                نقد
-          </a>
-{#                 <div class="absolute header-box review-box radius">#}
-{##}
-{#                <div class="">#}
-{#                    <ul class="review-list">#}
-{##}
-{#                        <li class="pointer right">نقد‌های سینمایی</li>#}
-{#                        <li class="pointer right">نقدهای تلوزیونی</li>#}
-{#                        <li class="pointer right">نقد کاربران</li>#}
-{#                        <li class="pointer right"> آرشیو نقد</li>#}
-{#                    </ul>#}
-{#                </div>#}
-{##}
-{#            </div>#}
-            </div>
-
-            <div class="menu-items right">
-                <a class="sens-bold" href="{% url 'news' %}">
-                    خبر
-                </a>
-
-                <div class="absolute header-box news-box radius">
-
-                    <a class="right news-right" href="{{ main_news.page_url }}">
-                        <img src="{% thumbnail main_news.image 222x145 crop %}" width="222" height="145">
-
-                        <div class="header-news">
-                            {{ main_news.name }}
-                        </div>
-                        <div class="main-news">
-                            {{ main_news.lead|safe|default:"" }}
-                        </div>
-                    </a>
-
-                    <div class="right news-center border-left">
-
-                        {% for news in hot_news %}
-                            <a class="news-items" href="{{ news.page_url }}">
-                                <img src="{{ news.get_cropped_image }}" class="right news-imgs radius" width="60"
-                                     height="60">
-
-                                <div class="right news-item-text">
-                                    {{ news.name }}
-                                </div>
-                            </a>
-                        {% endfor %}
-
-                    </div>
-                    <div class="right">
-                        <ul class="tv-list news-list">
-
-                            <li class="pointer">
-                                <a href="{% url 'news' %}">
-                                    آخرین خبرها
-                                </a>
-                            </li>
-
-                            <li class="pointer">
-                                <a href="">
-                                    پربیننده ترین خبرهای هفته
-                                </a>
-                            </li>
-
-                            <li class="pointer">
-                                <a href="">
-                                    پربحث ترین خبرهای هفته
-                                </a>
-                            </li>
-
-                            <li class="pointer">
-                                <a href="">
-                                    آرشیو اخبار
-                                </a>
-                            </li>
-
-                        </ul>
-                    </div>
-
-                </div>
-
-            </div>
-
-            {% if user.is_authenticated %}
-                <div class="menu-items right">
-                <a class="sens-bold" href="{% url "profile" %}">
-                    علاقه‌مندی‌ها
-                </a>
-                    <div class="absolute header-box fav-box radius">
-
-                        {% for fav in last_fav %}
-                            <a class="right actors-show" href="{{ fav.page_url }}">
-                                <div class="relative">
-                                    <div class="show-img-item absolute"></div>
-                                    <img src="{{ fav.obj.get_site_list_image }}" class="pointer" width="133"
-                                         height="190">
-
-                                </div>
-                                <div class="actors-text">
-                                    {{ fav.title }}
-                                </div>
-                            </a>
-                        {% endfor %}
-
-                        <div class="right">
-                            <ul class="show-list">
-
-                                <li class="pointer">
-                                    <a href="{% url "profile" %}">
-                                        {% if last_fav %}
-                                            دیدن همه آثار نشان شده
-                                        {% else %}
-                                            لیست علاقه‌مندی‌های شما خالیست!
-                                        {% endif %}
-                                    </a>
-                                </li>
-
-                            </ul>
-                        </div>
-
-                    </div>
-
-                </div>
-
-            {% endif %}
-          <div class="fajr-items fajr right">
-                <a class="sens-bold" href="{% url 'fajr_list' %}">
- جشنواره فجر
-                </a>
-            </div>
-        </div>
-
-        <div id="menu-box-left" class="left">
-
-
-            <a href="{% url "blog" %}" class="white menu-item sens-bold">
-                وبلاگ منظوم
-            </a>
-        </div>
-
-    </div>
-</nav>
-
 
 <article id="content">
 
@@ -524,299 +95,60 @@
 </article>
 
 
-<footer class="">
 
-    <div id="footer" class="bg-black clear width table">
+<footer id="footer">
+    <div class="footer-box-top">
+        <div class="copywrite">
+            استفاده از مطالب سایت کل کل مگزین فقط برای مقاصد غیر تجاری و با ذکر منبع بلامانع است.کلیه حقوق این سایت به
+            شرکت پردازش رایانه کرمان تعلق دارد.
+        </div>
+    </div>
+    <div class="footer-box-bottom">
+        <div class="footer-bottom-items">
+            <div class="right footer-bottom-right">
+                <div class="newsletters-text">
+                    در خبرنامه عضو شوید ...
+                </div>
+                <div class="newsletters-box">
 
-        <div id="footer-box-top" class="relative main-width mrg-center">
+                    <input class="right" id="" placeholder="
+ایمیل خود را وارد کنید" value="">
 
-            <div class="absolute list-artists radius ">
-                {% for person in footer_persons %}
-                    <a class="footer-artist relative right" href="{{ person.page_url }}">
-                        <div class="footer-actor-title absolute">
-                            {{ person.name }}
-                        </div>
-                        <img data-src="{{ person.get_footer_image }}" src="" class="footer-artist-img"
-                             width="104" height="104">
-                    </a>
-                {% endfor %}
+                    <div class="left newsletters-btn">
+                        تایید ایمیل
+                    </div>
 
+                </div>
             </div>
-            <div class="footer-box">
-                <div class="footer-item">
-                    <div class="right">
-                        <img src="/static/images/footer-manzoom-logo.png" width="158" height="49">
-                    </div>
-                    <div class="right">
-                        <div id="footer-qustion" class="right radius">
-
-                            <div class="qustion-image"></div>
-
-                            <a class="qustion-text" href="{% url "faq" %}"> سوالات متداول</a>
-                        </div>
-
-                        {% if not user.is_authenticated %}
-                            <div id="footer-signup" class="right signup radius">
-
-                                <div class="signup-image"></div>
-
-                                <div class="signup-text"> ثبت نام در منظوم</div>
-                            </div>
-                        {% else %}
-                            <a id="footer-signup" class="right radius login-mod" href="{% url "profile" %}">
-
-                                <div class="signup-image"></div>
-
-                                <div class="signup-text"> ورود به حساب کاربری</div>
-                            </a>
-                        {% endif %}
-
-                    </div>
-                    <div class="left social">
-
-
-                        <div id="aparat-logo" class="left footer-logo"></div>
-                        <div id="twitter-logo" class="left footer-logo"></div>
-                        <div id="plus-logo" class="left footer-logo"></div>
-                        <div id="insta-logo" class="left footer-logo"></div>
-
-                    </div>
+            <div class="right footer-bottom-middle">
+                <div class="contactus-btn">
+                    ارتباط با ما
                 </div>
-                <div class="">
-                    <span class="right white"> مرجع فیلم ، سریال و برنامه های تلویزیونی</span>
-                    <hr id="footer-line" class="left">
+                <div class="propaganda-btn">
+                    تبلیغات در کَل کَل نیوز
                 </div>
-                <br>
+            </div>
+            <div class="right footer-bottom-left">
+                <div class="social-text">
+                    شبکه های اجتماعی
+                </div>
+                <hr class="social-line">
+                <div class="social-items">
+                    <div class="right social-facebook"></div>
+                    <div class="right social-youtube"></div>
+                    <div class="right social-android"></div>
+                    <div class="right social-instagram"></div>
+                    <div class="right social-googleplus"></div>
+                    <div class="right social-twitter"></div>
 
-                <div>
-                    <div class="right white">
-                        <ul class="footer-ul footer-list-right">
 
-                            <li>
-                                <a href="{% url "about" %}">
-                                    منظوم چیست؟
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="{% url "contact" %}">
-                                    چگونه با منظوم ارتباط برقرار کنیم؟
-                                </a>
-                            </li>
-                            <li><a href="javscript:void(0)">چگونه در منظوم تبلیغات کنیم؟ </a></li>
-                        </ul>
-                    </div>
-
-                    <div class="right footer-list white footer-list-rcenter">
-                        <ul class="footer-ul">
-                            <li>
-                                <a href="{% url "50bestmovie" %}">
-                                    50 فیلم برتر تاریخ سینمای ایران
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{% url "20bestseries" %}">
-                                    20 سریال برتر تاریخ تلویزیون ایران
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{% url "20besttel" %}">
-                                    20 برنامه برتر تاریخ تلویزیون ایران
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="right footer-list white footer-list-lcenter">
-                        <ul class="footer-ul">
-                            <li class=""><a href="{% url "search" %}" class=" "> جستجوی‌ پیشرفته </a></li>
-                            <li><a href="{% url "blog" %}"> وبلاگ منظوم</a></li>
-
-                        </ul>
-                    </div>
-
-                    <div class="left footer-left radius">
-                        <div class="right footer-left-text">
-                            دریافت نرم‌افزار اندروید منظوم
-                        </div>
-                        <div class="left footer-left-img">
-
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="bg-green width table">
-        <div class="main-width mrg-center">
-            <div id="footer-box-bottom">
-                <div class="min_height">
 
-                    <div class="right grey footer-bright">
-                        کلیه‌ی فعالیت های سایت و اپلیکیشن «منظوم» تابع قوانین و مقررات جمهوری اسلامی ایران می باشد.
-                    </div>
-                    {#                    <div class="right grey footer-bright">#}
-                    {#                        <img class="right location" src="/static/images/footer-location.png">#}
-                    {#                        <span class="right">خیابان مطهری، خیابان میرداماد، کوچه سوم، پلاک9، واحد5</span>#}
-                    {#                    </div>#}
-                    {#                    <div class="right grey border-right footer-list">#}
-                    {#                        <span>تلفن: 2233226655</span>#}
-                    {#                    </div>#}
-                    {#                    <div class="right grey border-right footer-list">#}
-                    {#                        <span>دورنگار: 2233445566</span>#}
-                    {#                    </div>#}
-                    <div class="min-footer-size grey left">
-                        <span>&copy; Designed By : MoHaMMaD MaHdi </span>
-                    </div>
-                </div>
-                <div>
-                    <div class="right grey">
-                        {#                        <span> تمام حقوق این سایت برای منظوم محفوظ است. نقل مطالب با ذکر منبع بلامانع است.</span>#}
-                        <span>
-                            کلیه‌ی حقوق نشر، عرضه، اجرا و بهره‌برداری از اطلاعات موجود در سایت و اپلیکیشن «منظوم» نزد منصه محفوظ است و استفاده از آن غیرقانونی می‌باشد.
-                        </span>
-                    </div>
-                    <div class="min-footer-size left grey">
-                        <a target="_blank" href="http://prkgroup.ir/">&copy; Developed By : PRK </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
 </footer>
-
-
-<section class="account-section hidden" id="login-box">
-
-    <div class="radius mrg-center center pop-box">
-
-        <div class="header">
-            وارد منظوم شوید
-        </div>
-
-        <div class="message error red absolute">
-        </div>
-
-        <form action="{% url "login" %}" method="post">
-            {% csrf_token %}
-
-            <input type="hidden" name="next" value="{{ request.path }}">
-
-            <input type="text" id="login-email" name="username" class="center input " placeholder=" ایمیل شما"
-                   dir="ltr">
-
-            <input type="password" id="login-pass" name="password" class="center input" placeholder="رمز عبور"
-                   dir="ltr">
-
-            <div class="captcha">
-                متن زیر را وارد کنید:
-            </div>
-
-
-            <input type="submit" value="ورود" class="bg-green submit radius">
-
-        </form>
-
-        <div class="go-signup">
-            ثبت نام کنید
-        </div>
-        <div class="forget-pass red">
-            رمز عبور را فراموش کرده ام
-        </div>
-    </div>
-
-</section>
-<section class="account-section hidden" id="forget-box">
-
-    <div class="radius mrg-center center pop-box">
-
-        <div class="header">
-            بازیابی رمز عبور
-        </div>
-
-        <div class="message red">
-        </div>
-
-        <form action="{% url "login" %}" method="post">
-            {% csrf_token %}
-
-            <input type="hidden" name="next" value="{{ request.path }}">
-
-            <input type="email" id="forget-email" name="username" class="forget-box center input" placeholder=" ایمیل"
-                   dir="ltr">
-
-            <input type="submit" value="ارسال" class="bg-green submit radius">
-
-        </form>
-
-    </div>
-
-</section>
-
-<section class="account-section hidden" id="signup-box">
-
-
-    <div class="radius mrg-center center pop-box">
-
-        <div class="header">
-            در منظوم ثبت نام کنید!
-        </div>
-        <div class="message error red absolute">
-
-        </div>
-        <form action="{% url "signup" %}" method="post">
-            {% csrf_token %}
-
-            <input type="text" name="name" id="signup-name" class="center input"
-                   placeholder="نام و نام خانوادگی (به فارسی)">
-
-            <div class="signup error absolute red">
-
-            </div>
-            <input type="email" name="email" id="signup-email" class="center input" placeholder="ایمیل" dir="ltr">
-
-            <div class="signup error absolute red">
-
-            </div>
-            <input type="password" id="signup-pass" name="password" class="center input" placeholder="رمز عبور"
-                   dir="ltr">
-
-            <div class="signup error absolute red">
-
-            </div>
-            <div class="captcha">
-                متن زیر را وارد کنید:
-            </div>
-
-
-            <input type="submit" value="ثبت نام" class="bg-green submit radius">
-
-        </form>
-
-    </div>
-
-</section>
-
-{% if user_message %}
-    {% include 'user_messages.html' %}
-{% endif %}
-
-{% include 'messages.html' %}
-
-{#<script>#}
-
-{#    $(document).ready(function () {#}
-{#        $("html").niceScroll({#}
-{#            railpadding: {top: 0, right: 2, left: 0, bottom: 0},#}
-{#            cursorcolor: "#fff",#}
-{#            cursoropacitymin: 0.6,#}
-{#            cursorborder: "none"#}
-{#        });#}
-{#    });#}
-
-{#</script>#}
-
 
 </body>
 

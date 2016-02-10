@@ -81,40 +81,40 @@ Profile._meta.get_field('first_name').verbose_name = 'نام حقیقی'
 Profile._meta.get_field('is_staff').verbose_name = 'وضعیت همکاری'
 
 
-class Suggestion(BaseModel):
-    SUGGESTION_TYPES = (
-        (1, "پیشنهاد"),
-        (2, "انتقاد"),
-        (3, "نظر"),
-        (4, "سفارش تبلیغات"),
-    )
-    sug_type = models.IntegerField(verbose_name="نوع", null=True, default=1, choices=SUGGESTION_TYPES)
-    email = models.EmailField(verbose_name=u"ایمیل", null=True)
-    title = models.CharField(verbose_name=u"عنوان", null=True, max_length=700)
-    body = models.TextField(verbose_name=u"متن", null=True, max_length=3000)
-
-    fav = models.BooleanField("علاقه مندی", default=False)
-
-    class Meta:
-        verbose_name = u"تماس با ما"
-        verbose_name_plural = u"تماس با ما"
-
-    def __str__(self):
-        return self.title
-
-
-class Faq(models.Model):
-    question = models.TextField(default="", verbose_name="سوال")
-    answer = models.TextField(default="", verbose_name="پاسخ")
-    order = models.IntegerField(verbose_name="ترتیب", default=1)
-
-    creator = models.ForeignKey('account.Profile', verbose_name="سازنده", null=True, blank=True)
-    created_on = models.DateTimeField(verbose_name="تاریخ ایجاد", auto_now_add=True)
-
-    class Meta:
-        verbose_name = "سوالات متداول"
-        verbose_name_plural = "سوالات متداول"
-        ordering = ('order', '-id')
-
-    def __str__(self):
-        return self.question
+# class Suggestion(BaseModel):
+#     SUGGESTION_TYPES = (
+#         (1, "پیشنهاد"),
+#         (2, "انتقاد"),
+#         (3, "نظر"),
+#         (4, "سفارش تبلیغات"),
+#     )
+#     sug_type = models.IntegerField(verbose_name="نوع", null=True, default=1, choices=SUGGESTION_TYPES)
+#     email = models.EmailField(verbose_name=u"ایمیل", null=True)
+#     title = models.CharField(verbose_name=u"عنوان", null=True, max_length=700)
+#     body = models.TextField(verbose_name=u"متن", null=True, max_length=3000)
+#
+#     fav = models.BooleanField("علاقه مندی", default=False)
+#
+#     class Meta:
+#         verbose_name = u"تماس با ما"
+#         verbose_name_plural = u"تماس با ما"
+#
+#     def __str__(self):
+#         return self.title
+#
+#
+# class Faq(models.Model):
+#     question = models.TextField(default="", verbose_name="سوال")
+#     answer = models.TextField(default="", verbose_name="پاسخ")
+#     order = models.IntegerField(verbose_name="ترتیب", default=1)
+#
+#     creator = models.ForeignKey('account.Profile', verbose_name="سازنده", null=True, blank=True)
+#     created_on = models.DateTimeField(verbose_name="تاریخ ایجاد", auto_now_add=True)
+#
+#     class Meta:
+#         verbose_name = "سوالات متداول"
+#         verbose_name_plural = "سوالات متداول"
+#         ordering = ('order', '-id')
+#
+#     def __str__(self):
+#         return self.question
