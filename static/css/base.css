@@ -20,6 +20,10 @@ body {
 
 }
 
+.display {
+    display: table;
+}
+
 input, textarea, select {
     font-family: 'IRAN', tahoma, sans-serif;;
 }
@@ -512,6 +516,11 @@ a {
 }
 
 /*top-main*/
+.slider-right-Column {
+    width: 828px;
+    margin-left: 11px;
+}
+
 .main-right-Column {
     width: 588px;
     margin-left: 11px;
@@ -540,7 +549,7 @@ a {
     height: 20px;
 
     bottom: 0;
-    right: 250px;
+    right: 360px;
 }
 
 .right-slider-btn div {
@@ -717,7 +726,6 @@ a {
 }
 
 .last-news .header {
-    margin-top: 20px;
     display: table;
 }
 
@@ -762,18 +770,19 @@ a {
     background-color: #afb1b3;
 
 }
-.main-middle-Column .advertising
-{
-       width: 100%;
+
+.main-middle-Column .advertising {
+    width: 100%;
     height: 100px;
     background-color: #E1E1E1;
     margin-top: 20px;
 
 }
-.hot-news
-{
+
+.hot-news {
     display: table;
 }
+
 .hot-news .header {
     margin-top: 20px;
     display: table;
@@ -793,6 +802,7 @@ a {
     margin-top: 20px;
 
 }
+
 .hot-news .hot-news-items {
     display: table;
 }
@@ -811,6 +821,7 @@ a {
     display: table;
 
 }
+
 .hot-news .hot-news-line {
     width: 100%;
     height: 1px;
@@ -820,22 +831,133 @@ a {
 }
 
 /*left-column*/
-.left-top-slider {
-    height: 148px;
-    background-color: #a6dcd9;
+/*.left-top-slider {*/
+/*height: 148px;*/
+/*background-color: #a6dcd9;*/
+/*}*/
+
+.left-login-box {
+    height: 300px;
+    background-color: #F7F8FA;
+    border: 1px solid #D4D5D7;
+    border-radius: 5px;
 }
 
-.left-top-box {
-    height: 148px;
-    background-color: #3fe8af;
-    margin-top: 4px;
+.left-login-box .login-box-text {
+    height: 45px;
+    background-color: #E4E4E4;
+    border-bottom: 2px solid #C6C6C8;
 }
-.left-column-box
-{
-margin-top: 40px;
+
+.left-login-box .username-field {
+    width: 280px;
 }
-.left-column-box .box1
+
+.left-login-box .username-field input {
+
+    margin-right: 13px;
+    height: 45px;
+    background-color: #E4E4E4;
+    box-sizing: border-box;
+    outline: 0;
+    border: none;
+    width: 260px;
+    border-radius: 5px;
+    border-bottom: 2px solid #C6C6C8;
+    padding-right: 20px;
+}
+
+.left-login-box .username-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #00918b;
+    margin-right: 10px;
+}
+
+.left-login-box .login-box-text div {
+    margin-right: 20px;
+    font-size: 25px;
+    color: white;
+
+}
+
+.left-login-box .field1 {
+    margin-top: 20px;
+}
+
+.left-login-box .field2 {
+    margin-top: 15px;
+}
+
+.left-login-box .login-btn {
+    width: 20px;
+    height: 40px;
+    background-color: #E4E4E4;
+}
+
+.left-login-box .checkmark {
+    display: table;
+    margin-top: 20px;
+    margin-right: 17px;
+
+}
+
+.left-login-box .checkmark .checkmark-field {
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    border: 1px solid black;
+}
+
+.left-login-box .checkmark .checkmark-text {
+    color: #CCCDCF;
+    margin-right: 15px;
+}
+
+.left-login-box .forget span {
+    color: #F27A7B;
+}
+
+.left-login-box .forget {
+    color: #CCCDCF;
+    margin-right: 17px;
+    margin-top: 5px;
+    font-size: 15px;
+}
+
+.left-login-box .login-btn {
+    width: 80px;
+    height: 40px;
+    border-radius: 5px;
+    padding-right: 23px;
+    box-sizing: border-box;
+    font-size: 22px;
+    margin-top: 25px;
+    margin-right: 6px;
+    border-bottom: 2px solid #C6C6C8;
+}
+
+.left-login-box .register-btn
 {
+    width: 100%;
+    height: 37px;
+    background-color: #F27A7B;
+    color: white;
+    text-align: center;
+    margin-top: 10px;
+    font-size: 20px;
+    padding-top: 2px;
+    padding-top: 3px;
+    box-sizing: border-box;
+
+
+}
+.left-column-box {
+    margin-top: 20px;
+}
+
+.left-column-box .box1 {
     width: 100%;
     height: 150px;
     margin-top: 20px;
