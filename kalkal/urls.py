@@ -29,6 +29,7 @@ if settings.ENABLE_SITE:
 
 
         url(r'^$', 'home.views.home', name='home'),
+        url(r'^main/$', 'home.views.main', name="main"),
 
     ]
 
