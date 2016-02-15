@@ -835,59 +835,57 @@ a {
 /*height: 148px;*/
 /*background-color: #a6dcd9;*/
 /*}*/
-
+.login-box{
+    width: 350px;
+}
 .left-login-box {
     height: 300px;
     background-color: #F7F8FA;
     border: 1px solid #D4D5D7;
     border-radius: 5px;
+    overflow: hidden;
 }
 
 .left-login-box .login-box-text {
-    height: 45px;
+    height: 38px;
     background-color: #E4E4E4;
-    border-bottom: 2px solid #C6C6C8;
+    border-bottom: 1px solid #C6C6C8;
+    box-shadow: 0px -5px 14px 1px;
 }
 
 .left-login-box .username-field {
     width: 280px;
+    height: 40px;
+    box-sizing: border-box;
 }
 
 .left-login-box .username-field input {
 
-    margin-right: 13px;
-    height: 45px;
+    margin-right: 11px;
+    height: 40px;
     background-color: #E4E4E4;
     box-sizing: border-box;
     outline: 0;
     border: none;
-    width: 260px;
+    width: 270px;
     border-radius: 5px;
-    border-bottom: 2px solid #C6C6C8;
+    border-bottom: 1px solid #C6C6C8;
     padding-right: 20px;
-}
-
-.left-login-box .username-icon {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: #00918b;
-    margin-right: 10px;
 }
 
 .left-login-box .login-box-text div {
     margin-right: 20px;
-    font-size: 25px;
+    font-size: 22px;
     color: white;
-
 }
 
 .left-login-box .field1 {
-    margin-top: 20px;
+    margin-top: 27px;
+    height: 40px;
 }
 
 .left-login-box .field2 {
-    margin-top: 15px;
+    margin-top: 12px;
 }
 
 .left-login-box .login-btn {
@@ -898,8 +896,8 @@ a {
 
 .left-login-box .checkmark {
     display: table;
-    margin-top: 20px;
-    margin-right: 17px;
+    margin-top: 13px;
+    margin-right: 10px;
 
 }
 
@@ -912,7 +910,9 @@ a {
 
 .left-login-box .checkmark .checkmark-text {
     color: #CCCDCF;
-    margin-right: 15px;
+    margin-right: 5px;
+    margin-top: 3px;
+    font-size: 13px;
 }
 
 .left-login-box .forget span {
@@ -921,38 +921,54 @@ a {
 
 .left-login-box .forget {
     color: #CCCDCF;
-    margin-right: 17px;
+    margin-right: 14px;
     margin-top: 5px;
-    font-size: 15px;
+    font-size: 13px;
+    /* margin-right: 27px; */
 }
 
 .left-login-box .login-btn {
-    width: 80px;
+    width: 108px;
     height: 40px;
     border-radius: 5px;
-    padding-right: 23px;
+    /* padding-right: 35px; */
+    text-align: center;
     box-sizing: border-box;
     font-size: 22px;
     margin-top: 25px;
-    margin-right: 6px;
+    color: #ACA9AE;
+    margin-right: 12px;
     border-bottom: 2px solid #C6C6C8;
+    cursor: pointer;
 }
 
-.left-login-box .register-btn
-{
+.left-login-box .login-btn:hover {
+    background-color: #F27A7B;
+    color: white;
+}
+
+.left-login-box .login-btn:active {
+    border-bottom: 0px solid;
+
+}
+
+.left-login-box .register-btn {
     width: 100%;
-    height: 37px;
+    height: 47px;
     background-color: #F27A7B;
     color: white;
     text-align: center;
     margin-top: 10px;
+    cursor: pointer;
     font-size: 20px;
-    padding-top: 2px;
-    padding-top: 3px;
+
+    box-shadow: 0px 0px 4px -1px black;
+    /* border-bottom: 1px solid #C6C6C8; */
+    padding-top: 8px;
     box-sizing: border-box;
 
-
 }
+
 .left-column-box {
     margin-top: 20px;
 }
@@ -962,4 +978,21 @@ a {
     height: 150px;
     margin-top: 20px;
 
+}
+
+.username-icon {
+    background-image: url("/static/images/login-box-img.png");
+    width: 33px;
+    height: 33px;
+    margin-right: 10px;
+    margin-top: 4px;
+}
+
+.password-icon {
+    background-image: url("/static/images/login-box-img.png");
+    width: 33px;
+    height: 33px;
+    margin-right: 10px;
+    margin-top: 4px;
+    background-position: 0 47px;
 }
