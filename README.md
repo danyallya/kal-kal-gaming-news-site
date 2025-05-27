@@ -75,48 +75,42 @@ kal-kal-gaming-news-site/
    ```
 ````
 
-```markdown
-Navigate into the directory:
-```
+
+## Navigate into the directory:
+
 
 ```bash
 cd kal-kal-gaming-news-site
 ```
 
-```markdown
-Install dependencies:
-```
+## Install dependencies:
+
 
 ```bash
 pip install -r requirements.txt
 ```
 
-```markdown
-Apply migrations:
-```
+
+## Apply migrations:
+
 
 ```bash
 python manage.py migrate
 ```
 
-```markdown
-Create a superuser (optional):
-```
+## Create a superuser (optional):
 
 ```bash
 python manage.py createsuperuser
 ```
 
-```markdown
-Run the development server:
-```
+## Run the development server:
 
 ```bash
 python manage.py runserver
 ```
 
-```markdown
-Open your browser at: http://localhost:8000
+## Open your browser at: http://localhost:8000
 🛠️ Customization Tips
 You can:
 
@@ -129,4 +123,3 @@ MIT License – Free to use, modify, and distribute.
 
 🤝 Contribution
 Contributions are welcome! Improve UI, add features like dark mode, enhance search functionality, or improve responsiveness.
-```
