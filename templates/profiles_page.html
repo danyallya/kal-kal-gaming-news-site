@@ -1,0 +1,443 @@
+{% load thumbnail %}
+<!DOCTYPE html>
+<html dir="ltr" lang="fa-ir">
+<head>
+
+    <title>{% block title %}{{ title|default:"منظوم | ‌مرجع سینما و تلویزیون ایران" }}{% endblock %}</title>
+
+
+    {% block meta %}
+    {% endblock %}
+
+    <link rel="shortcut icon" href="/static/images/favicon.ico">
+
+    {% block og_image %}
+        <meta property="og:image" content="/static/images/favicon.ico">
+    {% endblock %}
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="user-scalable = yes">
+
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta charset="utf-8">
+
+    {% block CSS %}
+        <link rel="stylesheet" type="text/css" href="/static/css/base_game.css?v={{ SITE_VERSION }}"/>
+        <link rel="stylesheet" type="text/css" href="/static/css/profile_page.css?v={{ SITE_VERSION }}"/>
+    {% endblock %}
+
+    {% block JS %}
+        <script type="text/javascript" src="/static/jquery/jquery-1.11.2.min.js"></script>
+
+        <script>
+            var django = {jQuery: jQuery};
+            var is_auth = {{ user.is_authenticated|yesno:"true,false" }};
+            {#            var checkUrl = '{% url "check" %}';#}
+            {#            var checkSignupUrl = '{% url "check_signup" %}';#}
+            {#            var forgetUrl = '{% url "forget" %}';#}
+            {#            var favUrl = '{% url "fav_ajax" %}';#}
+            {#            var searchUrl = '{% url "search_sug" %}';#}
+            {#            var sendConfirmEmailUrl = '{% url "send_confirm_link" %}';#}
+        </script>
+
+    {% endblock %}
+
+
+</head>
+
+<body class="main_container dark-blue">
+
+
+<div class="main-width mrg-center table">
+    <div class="header-box mrg-center">
+        <div id="info-id" class="right radius relative info-box">
+            <div class="top-box clear">
+                <div class="right fallowing-rate">
+                    <div class="fallowing-img"></div>
+                    <div class="rate-text">
+                        227
+                    </div>
+                    <div class="name-text">
+                        FALLOWING
+                    </div>
+                </div>
+                <div class="right fallowers-rate">
+                    <div class="fallowers-img"></div>
+                    <div class="rate-text">
+                        227
+                    </div>
+                    <div class="name-text">
+                        FALLOWING
+                    </div>
+                </div>
+
+            </div>
+            <div class="follow-btn">
+                FOLLOW
+            </div>
+            <div class="bottom-box">
+                <div class="right win">
+                    <div class="win-img"></div>
+                    <div class="win-text">
+                        224
+                    </div>
+
+                </div>
+                <div class="right lose">
+                    <div class="lose-img"></div>
+                    <div class="lose-text">
+                        224
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div id="user-id" class="right radius relative info-box">
+            <div class="user-cover">
+                <img src="/static/images/1.jpg" width="100%" height="100%">
+            </div>
+            <div class="user-text">
+                <div class="user-info-text">
+                    <div class="who-i-am white">
+                        من یک گیمر حرفه ای هستم
+                    </div>
+                    <div class="who-info blue">
+                        یه عالمه بازی کردم ایقه ادعا دارم ایقه بردم از
+                        سال فلان دارم بازی میکنم و ... فلان
+                        فل فلان فلان فلان فلان فلان فلان فلان فلان فلان
+                        فلان فلان فلان فلان فلان فلان فلان فلان فلان فلان فلان ف
+                    </div>
+
+                </div>
+                <div class="like-com">
+                    <div class="left cursor">
+                        <div class="right like-num blue">59</div>
+                        <div class="right like-img"></div>
+
+                    </div>
+                    <div class="left cursor">
+                        <div class="right com-num blue">59</div>
+                        <div class="right com-img"></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="rotate-btn absolute">
+                <div class="rotate-btn-img"></div>
+            </div>
+            <div class="user-box absolute">
+                <div class="profile-text right">
+                    <div class="name white">
+                        <div class="name-text">
+                            دانیال یاشیخ اکبری
+                        </div>
+                    </div>
+                    <div class="time blue">
+                        <div class="time-img right"></div>
+                        <div class="right">
+                            سه ساعت پیش
+                        </div>
+                    </div>
+                </div>
+
+                <div class="profile-img right">
+                    <div>
+                        <img src="/static/images/1.jpg">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="right radius relative no-mrg-left info-box">
+            <div class="clear id-item post-num">
+                <div class="right img"></div>
+                <div class="right text">
+
+                    تعداد پست ها
+                    :
+                </div>
+                <div class="right text">
+                    123215
+                </div>
+            </div>
+            <div class="clear id-item review-num">
+                <div class="right img"></div>
+                <div class="right text">
+
+                    تعداد نقد ها
+                    :
+                </div>
+                <div class="right text">
+                    123215
+                </div>
+            </div>
+
+            <div class="clear id-item time-num">
+                <div class="right img"></div>
+                <div class="right text">
+
+                    مدت عضویت در سایت
+                    :
+                </div>
+                <div class="right text">
+                    یک سال
+                </div>
+            </div>
+
+            <div class="clear id-item visit-num">
+                <div class="right img"></div>
+                <div class="right text">
+
+                    تعداد بازدید از پروفایل
+                    :
+                </div>
+                <div class="right text">
+                    123215
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <div class="right" id="right-box">
+
+    </div>
+    <div class="right" id="left-box">
+        <div class="last-review light-blue relative radius">
+            <div class="header white middle-blue">
+                آخرین نقد
+            </div>
+            <div class="main">
+                <div class="text blue">
+                    بازی حیلی خوبی بود حال کردم باهاش عالی بودبازی حیلی خوبی بود حال کردم باهاش عالی
+                    بودبازی حیلی خوبی بود حال کردم باهاش عالی بود بازی حیلی خوبی بود حال کردم باهاش عالی بود
+                    بازی حیلی خوبی بود حال کردم باهاش عالی بودبازی حیلی
+                    خوبی بود حال کردم باهاش عالی بود
+<span class="white cursor">
+    بیشتر بخوانید
+</span>
+                </div>
+                <div class="time-review right white ">
+                    سیزدهم بهمن 1395
+                </div>
+                <div class="left cursor">
+                    <div class="right like-num blue">59</div>
+                    <div class="right like-img"></div>
+
+                </div>
+                <div class="left cursor">
+                    <div class="right com-num blue">59</div>
+                    <div class="right com-img"></div>
+
+                </div>
+            </div>
+
+        </div>
+        <div class="last-post light-blue relative radius">
+            <div class="header middle-blue white">
+                پست ها
+            </div>
+            <div class="main">
+                <div class="post">
+                    <div class="right post-img radius">
+                        <img src="/static/images/1.jpg" width="140" height="140">
+                    </div>
+                    <div class="post-main right">
+                        <div class="title white">
+                            عنوان پست مورد نظر
+                        </div>
+                        <div class="text blue">
+                            تو جام بردمممممتو جامممم تو جام بردممممم تو جام بردممممم
+                            تو جام بردمممممتو جامممم تو جام بردممممم تو جام بردممممم
+                            ممم تو جام بردممممم تو جام بردمممممممم تو جام بردممممم تو جام بردممممم
+                            ممتو جام بردمممممتو جامممم تو جام بردممممم تو جام بردممممم
+                            ممم تو جام بردممممم تو جام بردمممممممم تو جام بردممممم تو جام بردممممم
+                            ممممم تو جام بردممممم تو جام بردمممممممم تو جام بردممممم تو جام بردممممم
+                            ممم تو جام بردممممم تو جام بردممممم
+
+                        </div>
+                        <div class="clear">
+                            <div class="right cursor">
+                                <div class="right com-num blue">59</div>
+                                <div class="right com-img"></div>
+
+                            </div>
+
+                            <div class="right cursor">
+                                <div class="right like-num blue">59</div>
+                                <div class="right like-img"></div>
+
+                            </div>
+                            <div class="right blue time">
+                                18
+                                ساعت قبل
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="post">
+                    <div class="right post-img radius">
+                        <img src="/static/images/1.jpg" width="140" height="140">
+                    </div>
+                    <div class="post-main right">
+                        <div class="title white">
+                            عنوان پست مورد نظر
+                        </div>
+                        <div class="text blue">
+                            تو جام بردمممممتو جامممم تو جام بردممممم تو جام بردممممم
+                            تو جام بردمممممتو جامممم تو جام بردممممم تو جام بردممممم
+                            ممم تو جام بردممممم تو جام بردمممممممم تو جام بردممممم تو جام بردممممم
+                            ممتو جام بردمممممتو جامممم تو جام بردممممم تو جام بردممممم
+                            ممم تو جام بردممممم تو جام بردمممممممم تو جام بردممممم تو جام بردممممم
+                            ممممم تو جام بردممممم تو جام بردمممممممم تو جام بردممممم تو جام بردممممم
+                            ممم تو جام بردممممم تو جام بردممممم
+
+                        </div>
+                        <div class="clear">
+                            <div class="right cursor">
+                                <div class="right com-num blue">59</div>
+                                <div class="right com-img"></div>
+
+                            </div>
+
+                            <div class="right cursor">
+                                <div class="right like-num blue">59</div>
+                                <div class="right like-img"></div>
+
+                            </div>
+                            <div class="right blue time">
+                                18
+                                ساعت قبل
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="post">
+                    <div class="right post-img radius">
+                        <img src="/static/images/1.jpg" width="140" height="140">
+                    </div>
+                    <div class="post-main right">
+                        <div class="title white">
+                            عنوان پست مورد نظر
+                        </div>
+                        <div class="text blue">
+                            تو جام بردمممممتو جامممم تو جام بردممممم تو جام بردممممم
+                            تو جام بردمممممتو جامممم تو جام بردممممم تو جام بردممممم
+                            ممم تو جام بردممممم تو جام بردمممممممم تو جام بردممممم تو جام بردممممم
+                            ممتو جام بردمممممتو جامممم تو جام بردممممم تو جام بردممممم
+                            ممم تو جام بردممممم تو جام بردمممممممم تو جام بردممممم تو جام بردممممم
+                            ممممم تو جام بردممممم تو جام بردمممممممم تو جام بردممممم تو جام بردممممم
+                            ممم تو جام بردممممم تو جام بردممممم
+
+                        </div>
+                        <div class="clear">
+                            <div class="right cursor">
+                                <div class="right com-num blue">59</div>
+                                <div class="right com-img"></div>
+
+                            </div>
+
+                            <div class="right cursor">
+                                <div class="right like-num blue">59</div>
+                                <div class="right like-img"></div>
+
+                            </div>
+                            <div class="right blue time">
+                                18
+                                ساعت قبل
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="post">
+                    <div class="right post-img radius">
+                        <img src="/static/images/1.jpg" width="140" height="140">
+                    </div>
+                    <div class="post-main right">
+                        <div class="title white">
+                            عنوان پست مورد نظر
+                        </div>
+                        <div class="text blue">
+                            تو جام بردمممممتو جامممم تو جام بردممممم تو جام بردممممم
+                            تو جام بردمممممتو جامممم تو جام بردممممم تو جام بردممممم
+                            ممم تو جام بردممممم تو جام بردمممممممم تو جام بردممممم تو جام بردممممم
+                            ممتو جام بردمممممتو جامممم تو جام بردممممم تو جام بردممممم
+                            ممم تو جام بردممممم تو جام بردمممممممم تو جام بردممممم تو جام بردممممم
+                            ممممم تو جام بردممممم تو جام بردمممممممم تو جام بردممممم تو جام بردممممم
+                            ممم تو جام بردممممم تو جام بردممممم
+
+                        </div>
+                        <div class="clear">
+                            <div class="right cursor">
+                                <div class="right com-num blue">59</div>
+                                <div class="right com-img"></div>
+
+                            </div>
+
+                            <div class="right cursor">
+                                <div class="right like-num blue">59</div>
+                                <div class="right like-img"></div>
+
+                            </div>
+                            <div class="right blue time">
+                                18
+                                ساعت قبل
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="post">
+                    <div class="right post-img radius">
+                        <img src="/static/images/1.jpg" width="140" height="140">
+                    </div>
+                    <div class="post-main right">
+                        <div class="title white">
+                            عنوان پست مورد نظر
+                        </div>
+                        <div class="text blue">
+                            تو جام بردمممممتو جامممم تو جام بردممممم تو جام بردممممم
+                            تو جام بردمممممتو جامممم تو جام بردممممم تو جام بردممممم
+                            ممم تو جام بردممممم تو جام بردمممممممم تو جام بردممممم تو جام بردممممم
+                            ممتو جام بردمممممتو جامممم تو جام بردممممم تو جام بردممممم
+                            ممم تو جام بردممممم تو جام بردمممممممم تو جام بردممممم تو جام بردممممم
+                            ممممم تو جام بردممممم تو جام بردمممممممم تو جام بردممممم تو جام بردممممم
+                            ممم تو جام بردممممم تو جام بردممممم
+
+                        </div>
+                        <div class="clear">
+                            <div class="right cursor">
+                                <div class="right com-num blue">59</div>
+                                <div class="right com-img"></div>
+
+                            </div>
+
+                            <div class="right cursor">
+                                <div class="right like-num blue">59</div>
+                                <div class="right like-img"></div>
+
+                            </div>
+                            <div class="right blue time">
+                                18
+                                ساعت قبل
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+<div class="example"></div>
+</div>
+</body>
+
+</html>

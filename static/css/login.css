@@ -1,0 +1,141 @@
+body {
+
+    background: url(../images/bac-login.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    margin: 0 auto;
+    padding: 0;
+    top: 0;
+    position: absolute;
+    width: 100%;
+    direction: rtl;
+}
+
+@font-face {
+    font-family: "byekan";
+    src: url(/static/fonts/BYekan.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: "akbar";
+    src: url(/static/fonts/akbar.ttf) format('truetype');
+}
+
+.social {
+    position: fixed;
+    top: 17px;
+    right: 100px;
+    clear: both;
+
+}
+
+.insta {
+    background-image: url("/static/images/login-icon.png");
+    width: 30px;
+    height: 30px;
+    background-position: 31px 0;
+    float: right;
+    cursor: pointer;
+}
+
+.facebook {
+    background-image: url("/static/images/login-icon.png");
+    width: 30px;
+    height: 30px;
+    background-position: 68px 0;
+    float: right;
+    cursor: pointer;
+}
+
+.twitter {
+    background-image: url("/static/images/login-icon.png");
+    width: 30px;
+    height: 30px;
+    background-position: 104px 0;
+    float: right;
+    cursor: pointer;
+}
+
+.log-box {
+    position: relative;
+    box-sizing: border-box;
+    clear: both;
+    display: table;
+    right: 100px;
+    top: 200px;
+}
+
+.log-box .header {
+    font-family: akbar;
+    color: #bbbcbc;
+    width: 318px;
+    height: 55px;
+    font-size: 28px;
+
+}
+
+.log-box .item {
+    margin-top: 15px;
+    background-color: rgba(0, 36, 58, 0.04);
+
+    overflow: hidden;
+    border-radius: 5px;
+}
+
+.item-box {
+    width: 270px;
+    height: 44px;
+    background-color: #00243a;
+    color: white;
+    outline: none;
+    opacity: 0.5;
+    border: 0;
+    float: right;
+    z-index: 111;
+    box-sizing: border-box;
+    padding: 10px;
+
+}
+
+.log-box .item .btn {
+    width: 50px;
+    height: 44px;
+    background-color: rgba(237, 29, 29, 0.86);
+    cursor: pointer;
+    float: left;
+
+}
+
+.log-box .item .btn .btn-icon {
+    background-image: url("/static/images/login-icon.png");
+    background-position: 0 0;
+    width: 30px;
+    height: 30px;
+    margin-right: 12px;
+    margin-top: 4px;
+
+}
+
+.forget-pass {
+    color: white;
+    font-family: byekan;
+    font-size: 12px;
+    margin-right: 6px;
+    margin-top: 10px;
+
+}
+
+.forget-pass span {
+    color: rgba(237, 29, 29, 0.86);
+    margin-right: 10px;
+}
+
+.sign-up {
+    color: rgba(237, 29, 29, 0.86);
+    margin-right: 6px;
+    margin-top: 10px;
+    font-family: byekan;
+    font-size: 12px;
+}

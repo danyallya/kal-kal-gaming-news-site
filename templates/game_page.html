@@ -1,0 +1,338 @@
+{% load thumbnail %}
+<!DOCTYPE html>
+<html dir="ltr" lang="fa-ir">
+<head>
+
+    <title>{% block title %}{{ title|default:"منظوم | ‌مرجع سینما و تلویزیون ایران" }}{% endblock %}</title>
+
+
+    {% block meta %}
+    {% endblock %}
+
+    <link rel="shortcut icon" href="/static/images/favicon.ico">
+
+    {% block og_image %}
+        <meta property="og:image" content="/static/images/favicon.ico">
+    {% endblock %}
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="user-scalable = yes">
+
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta charset="utf-8">
+
+    {% block CSS %}
+        <link rel="stylesheet" type="text/css" href="/static/css/base_game.css?v={{ SITE_VERSION }}"/>
+        <link rel="stylesheet" type="text/css" href="/static/css/game_page.css?v={{ SITE_VERSION }}"/>
+    {% endblock %}
+
+    {% block JS %}
+        <script type="text/javascript" src="/static/jquery/jquery-1.11.2.min.js"></script>
+
+        <script>
+            var django = {jQuery: jQuery};
+            var is_auth = {{ user.is_authenticated|yesno:"true,false" }};
+            {#            var checkUrl = '{% url "check" %}';#}
+            {#            var checkSignupUrl = '{% url "check_signup" %}';#}
+            {#            var forgetUrl = '{% url "forget" %}';#}
+            {#            var favUrl = '{% url "fav_ajax" %}';#}
+            {#            var searchUrl = '{% url "search_sug" %}';#}
+            {#            var sendConfirmEmailUrl = '{% url "send_confirm_link" %}';#}
+        </script>
+
+    {% endblock %}
+
+
+</head>
+
+<body class="main_container dark-blue">
+
+
+<div class="wall relative radius table mrg-center">
+    <img class="wall-img absolute" src="/static/images/8.jpg">
+
+    <div class="wall-info radius absolute light-blue">
+        این بازی در سال 1868 در لندن قلب کشور انگلستان رخ می دهد
+        در حالی که انقلاب صنعتی در این شهر
+        اوج گرفته و شورش و خرابی های بسیاری
+        را به بار آورده است یک برادر و خواهر به نام های Jacob و Evie Frye
+        که از فرقه ی قاتلان می باشند همراه هم قدم بر این شهر می گذارند .
+    </div>
+    <div class="wall-title white absolute">
+        ASSASINS CREAT syndicate
+    </div>
+
+</div>
+<div class="main-width mrg-center table">
+    <div id="left-box" class="right">
+        <div class="rate light-blue radius">
+            <div class="right blue rate-item">
+                <div>217K</div>
+                <div>
+                    chalenge
+                </div>
+            </div>
+            <div class="right blue rate-item">
+                <div>217K</div>
+                <div>
+                    falowes
+                </div>
+            </div>
+            <div class="right blue rate-item no-border">
+                <div>217K</div>
+                <div>
+                    chalenge
+                </div>
+            </div>
+
+        </div>
+        <div class="gallery relative light-blue radius">
+            <div class="picture-icon absolute"></div>
+            <img src="/static/images/1.jpg" class="right" width="185" height="120">
+            <img src="/static/images/4.jpg" class="right" width="186" height="120">
+
+            <img src="/static/images/5.jpg" class="right" width="185" height="120">
+            <img src="/static/images/3.jpg" class="right" width="186" height="120">
+
+
+        </div>
+        <div class="gallery relative light-blue radius">
+            <img src="/static/images/3.jpg" class="right" width="371" height="240">
+
+            <div class="video-icon absolute"></div>
+
+
+        </div>
+
+    </div>
+    <div id="right-box" class="right">
+        <div class="info light-blue radius relative">
+            <div class="left info-title table left">
+                <div class="title-item">
+                    توضیحات
+                </div>
+                <div class="title-item">
+                    نقد های کاربران
+                </div>
+                <div class="title-item">
+                    مشخصات فنی
+                </div>
+            </div>
+            <div class="right info-review">
+                <div class="review-img right">
+                    <div>
+                        <img src="/static/images/1.jpg" width="45" height="45">
+                    </div>
+                </div>
+                <img class="right review-img-arrow" src="/static/images/see-more.png" height="11" width="6">
+
+                <div class="review-text blue right">
+                    مشکل بزرگ یوبی سافت در این است که معمولا از ایده ها و قالب
+                    های درستی برای کار خود بهره می برد اما در نهایت، به قدری شاخ و
+                    برگ به آن می افزاید که همه چیز تحت شعاع قرار می گیرد و ایده ی
+                    اصلی،به طور کل
+                    دست فراموشی سپرده می شود. این مشکل سال هاست که در نسخه های
+                    متعدد اساسینز کرید دیده می شود و حالا در سندیکا به اوج خود ست.
+                    مشکل بزرگ یوبی سافت در این است که معمولا از ایده ها و قالب
+                    های درستی برای کار خود بهره می برد اما در نهایت، به قدری شاخ و
+                    برگ به آن می افزاید که همه چیز تحت شعاع قرار می گیرد و ایده ی
+                    اصلی،به طور کل
+                    دست فراموشی سپرده می شود. این مشکل سال هاست که در نسخه های
+                    متعدد اساسینز کرید دیده می شود و حالا در سندیکا به اوج خود ست.
+
+
+                </div>
+                <div class="review-arrow">
+                    <div class="right right-arrow"></div>
+                    <div class="right left-arrow"></div>
+                </div>
+            </div>
+        </div>
+        <div class="last-news right relative light-blue radius">
+            <div class="right middle-blue news-title">
+                آخرین خبر
+            </div>
+            <div class="right news-img">
+                <div>
+                    <img src="/static/images/1.jpg">
+                </div>
+            </div>
+            <div class="right table news-text">
+                <div class="white">
+                    آبدیت جدید برای این بازی
+                </div>
+                <div class="blue">
+                    یک ابدیت جدید به زودی
+                    برای این بازی منتشر میشود
+                </div>
+
+            </div>
+        </div>
+        <div class="game-item right relative light-blue radius">
+            <div class="chat-game right">
+                KAl KAL
+            </div>
+            <div class="border right dark-blue"></div>
+            <div class="challenge-game left">
+                CHALLENGE
+            </div>
+        </div>
+        <div class="com-box light-blue relative radius">
+            <div class="header middle-blue">
+                <div class="right title white">
+                    نظرات
+                </div>
+                <div class="left rate blue">
+                    نظر
+                    <span>
+                        53
+                    </span>
+                </div>
+            </div>
+            <div class="main">
+                <div class="text-box">
+
+                    <div class="com-img right">
+                        <div>
+                            <img src="/static/images/1.jpg" height="45" width="45">
+                        </div>
+                    </div>
+                    <textarea class="right share-input radius" placeholder=" نظر شما چیست؟" name="comment"></textarea>
+                </div>
+                <div class="com-item clear">
+                    <img src="/static/images/1.jpg" class="right">
+
+                    <div class="text right">
+                        <div class="right white title">
+                            فلانی
+                        </div>
+                        <div class="right blue time">
+                            سه ساعت پیش
+                        </div>
+                        <div class="main-text clear">
+                            چیطو خوبی بود حال کردم بدک نبود مسخره چیطو خوبی بود حال کردم بدک نبود مسخره بود عالی بود اصن
+                            نمیدونم
+                            چیطو خوبی بود حال کردم بدک نبود مسخره بود عالی بود اصن نمیدونم
+                            چیطو خوبی بود حال کردم بدک نبود مسخره بود عالی بود اصن نمیدونم
+                            بود عالی بود اصن نمیدونم
+                        </div>
+                        <div class="replay-item">
+                            <div class="replay-text right white">
+                                پاسخ
+                            </div>
+
+                            <div class="replay-img right"></div>
+                        </div>
+
+                    </div>
+                    <div class="rate left">
+                        <div class="img right"></div>
+                        <div class="right rate-text">+12</div>
+                    </div>
+                </div>
+                <div class="com-item replay clear">
+                    <img src="/static/images/1.jpg" class="right">
+
+                    <div class="text right">
+                        <div class="right white title">
+                            فلانی
+                        </div>
+                        <div class="right blue time">
+                            سه ساعت پیش
+                        </div>
+                        <div class="main-text clear">
+                            چیطو خوبی بود حال کردم بدک نبود مسخره چیطو خوبی بود حال کردم بدک نبود مسخره بود عالی بود اصن
+                            نمیدونم
+                            چیطو خوبی بود حال کردم بدک نبود مسخره بود عالی بود اصن نمیدونم
+                            چیطو خوبی بود حال کردم بدک نبود مسخره بود عالی بود اصن نمیدونم
+                            بود عالی بود اصن نمیدونم
+                        </div>
+                        <div class="replay-item">
+                            <div class="replay-text right white">
+                                پاسخ
+                            </div>
+
+                            <div class="replay-img right"></div>
+                        </div>
+
+                    </div>
+                    <div class="rate left">
+                        <div class="img right"></div>
+                        <div class="right rate-text">+12</div>
+                    </div>
+                </div>
+                <div class="com-item clear">
+                    <img src="/static/images/1.jpg" class="right">
+
+                    <div class="text right">
+                        <div class="right white title">
+                            فلانی
+                        </div>
+                        <div class="right blue time">
+                            سه ساعت پیش
+                        </div>
+                        <div class="main-text clear">
+                            چیطو خوبی بود حال کردم بدک نبود مسخره چیطو خوبی بود حال کردم بدک نبود مسخره بود عالی بود اصن
+                            نمیدونم
+                            چیطو خوبی بود حال کردم بدک نبود مسخره بود عالی بود اصن نمیدونم
+                            چیطو خوبی بود حال کردم بدک نبود مسخره بود عالی بود اصن نمیدونم
+                            بود عالی بود اصن نمیدونم
+                        </div>
+                        <div class="replay-item">
+                            <div class="replay-text right white">
+                                پاسخ
+                            </div>
+
+                            <div class="replay-img right"></div>
+                        </div>
+
+                    </div>
+                    <div class="rate left">
+                        <div class="img right"></div>
+                        <div class="right rate-text">+12</div>
+                    </div>
+                </div>
+                <div class="com-item replay clear">
+                    <img src="/static/images/1.jpg" class="right">
+
+                    <div class="text right">
+                        <div class="right white title">
+                            فلانی
+                        </div>
+                        <div class="right blue time">
+                            سه ساعت پیش
+                        </div>
+                        <div class="main-text clear">
+                            چیطو خوبی بود حال کردم بدک نبود مسخره چیطو خوبی بود حال کردم بدک نبود مسخره بود عالی بود اصن
+                            نمیدونم
+                            چیطو خوبی بود حال کردم بدک نبود مسخره بود عالی بود اصن نمیدونم
+                            چیطو خوبی بود حال کردم بدک نبود مسخره بود عالی بود اصن نمیدونم
+                            بود عالی بود اصن نمیدونم
+                        </div>
+                        <div class="replay-item">
+                            <div class="replay-text right white">
+                                پاسخ
+                            </div>
+
+                            <div class="replay-img right"></div>
+                        </div>
+
+                    </div>
+                    <div class="rate left">
+                        <div class="img right"></div>
+                        <div class="right rate-text">+12</div>
+                    </div>
+                </div>
+                <div class="clear more-com">
+                    بیشتر دیدن
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+</body>
+
+</html>

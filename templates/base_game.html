@@ -1,0 +1,161 @@
+{% load thumbnail %}
+<!DOCTYPE html>
+<html dir="ltr" lang="fa-ir">
+<head>
+
+    <title>{% block title %}{{ title|default:"منظوم | ‌مرجع سینما و تلویزیون ایران" }}{% endblock %}</title>
+
+
+    {% block meta %}
+    {% endblock %}
+
+    <link rel="shortcut icon" href="/static/images/favicon.ico">
+
+    {% block og_image %}
+        <meta property="og:image" content="/static/images/favicon.ico">
+    {% endblock %}
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="user-scalable = yes">
+
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta charset="utf-8">
+
+    {% block CSS %}
+        <link rel="stylesheet" type="text/css" href="/static/css/base_game.css?v={{ SITE_VERSION }}"/>
+    {% endblock %}
+
+    {% block JS %}
+        <script type="text/javascript" src="/static/jquery/jquery-1.11.2.min.js"></script>
+
+        <script>
+            var django = {jQuery: jQuery};
+            var is_auth = {{ user.is_authenticated|yesno:"true,false" }};
+            {#            var checkUrl = '{% url "check" %}';#}
+            {#            var checkSignupUrl = '{% url "check_signup" %}';#}
+            {#            var forgetUrl = '{% url "forget" %}';#}
+            {#            var favUrl = '{% url "fav_ajax" %}';#}
+            {#            var searchUrl = '{% url "search_sug" %}';#}
+            {#            var sendConfirmEmailUrl = '{% url "send_confirm_link" %}';#}
+        </script>
+
+        <script type="text/javascript" src="/static/js/base_game.js?v={{ SITE_VERSION }}c"></script>
+    {% endblock %}
+
+
+</head>
+
+<body class="main_container dark-blue">
+
+
+<article id="content">
+
+    {% block content %}
+    {% endblock %}
+</article>
+
+
+<footer id="footer" class="light-blue table clear">
+
+    <div class="main">
+        <div class="table mrg-center main-width">
+            <div class="right last-post table">
+                <div class="white header-text">
+                    آخرین پست ها
+                </div>
+                <div class="post-item clear table">
+                    <div class="item-img radius right">
+                        <img src="/static/images/img1.jpg" width="70" height="70">
+                    </div>
+                    <div class="right">
+                        <div class="item-text">
+                            بهترین بازی دنیاس به نظرم
+                        </div>
+                        <div class="time blue">
+                            یک دقیقه پیش
+                        </div>
+                    </div>
+                </div>
+                <div class="post-item clear table">
+                    <div class="item-img radius right">
+                        <img src="/static/images/img1.jpg" width="70" height="70">
+                    </div>
+                    <div class="right">
+                        <div class="item-text">
+                            بهتر بهترین بازی دنیاس به نظرمین بازی دنیاس به نظرم
+                        </div>
+                        <div class="time blue">
+                            یک دقیقه پیش
+                        </div>
+                    </div>
+                </div>
+
+                <div class="see-more">
+                    <span class="white right">
+                        دیدن تمامی پست ها
+                    </span>
+                    <img class="right" src="/static/images/see-more.png" width="6" height="11">
+
+                </div>
+            </div>
+            <div class="right social">
+                <div class="logo mrg-center"></div>
+                <div class="items mrg-center">
+                    <div class="insta right"></div>
+                    <div class="twitter right"></div>
+                    <div class="facebook right"></div>
+                </div>
+                <div class="search radius">
+                    <input class="search-text dark-blue right" placeholder="کلمه مورد نظر را وارد کنید">
+
+                    <div class="search-btn right">
+                        <div class="btn-img"></div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="left last-post last-image table">
+                <div class="white left header-text">
+                    آخرین عکس و فیلم ها
+                </div>
+                <div class="table">
+                    <div class="item-img radius left">
+                        <img src="/static/images/img1.jpg" width="70" height="70">
+                    </div>
+                    <div class="item-img radius left">
+                        <img src="/static/images/img1.jpg" width="70" height="70">
+                    </div>
+                    <div class="item-img radius left">
+                        <img src="/static/images/img1.jpg" width="70" height="70">
+                    </div>
+                    <div class="item-img radius left">
+                        <img src="/static/images/img1.jpg" width="70" height="70">
+                    </div>
+                    <div class="item-img radius left">
+                        <img src="/static/images/img1.jpg" width="70" height="70">
+                    </div>
+                    <div class="item-img radius left">
+                        <img src="/static/images/img1.jpg" width="70" height="70">
+                    </div>
+                </div>
+                <div class="see-more">
+                    <img class="left" src="/static/images/see-more.png" width="6" height="11">
+                    <span class="white left">
+                        دیدن تمامی پست ها
+                    </span>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="copy-write blue">
+        Prodect By PRK
+    </div>
+</footer>
+
+</body>
+
+</html>

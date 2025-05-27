@@ -30,6 +30,12 @@ if settings.ENABLE_SITE:
 
         url(r'^$', 'home.views.home', name='home'),
         url(r'^main/$', 'home.views.main', name="main"),
+        url(r'^login/$', 'home.views.login', name="login"),
+        url(r'^base_game/$', 'home.views.base_game', name="base_game"),
+        url(r'^game_page/$', 'home.views.game_page', name="game_page"),
+        url(r'^profile_page/$', 'home.views.profile_page', name="profile_page"),
+        url(r'^profile_page/$', 'home.views.profiles_page', name="profile_page"),
+        url(r'^profile_pages/$', 'home.views.profiles_pages', name="profile_pages"),
 
     ]
 

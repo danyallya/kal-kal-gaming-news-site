@@ -1,0 +1,108 @@
+{% load thumbnail %}
+<!DOCTYPE html>
+<html dir="ltr" lang="fa-ir">
+<head>
+
+    <title>{% block title %}{{ title|default:"منظوم | ‌مرجع سینما و تلویزیون ایران" }}{% endblock %}</title>
+
+
+    {% block meta %}
+    {% endblock %}
+
+    <link rel="shortcut icon" href="/static/images/favicon.ico">
+
+    {% block og_image %}
+        <meta property="og:image" content="/static/images/favicon.ico">
+    {% endblock %}
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="user-scalable = yes">
+
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta charset="utf-8">
+
+    {% block CSS %}
+        <link rel="stylesheet" type="text/css" href="/static/css/login.css?v={{ SITE_VERSION }}"/>
+    {% endblock %}
+
+    {% block JS %}
+        <script type="text/javascript" src="/static/jquery/jquery-1.11.2.min.js"></script>
+
+        <script>
+            var django = {jQuery: jQuery};
+            var is_auth = {{ user.is_authenticated|yesno:"true,false" }};
+            {#            var checkUrl = '{% url "check" %}';#}
+            {#            var checkSignupUrl = '{% url "check_signup" %}';#}
+            {#            var forgetUrl = '{% url "forget" %}';#}
+            {#            var favUrl = '{% url "fav_ajax" %}';#}
+            {#            var searchUrl = '{% url "search_sug" %}';#}
+            {#            var sendConfirmEmailUrl = '{% url "send_confirm_link" %}';#}
+        </script>
+
+        <script type="text/javascript" src="/static/js/base.js?v={{ SITE_VERSION }}c"></script>
+    {% endblock %}
+
+
+</head>
+
+<body class="main_container">
+
+<div class="social">
+    <div class="insta"></div>
+    <div class="facebook"></div>
+    <div class="twitter"></div>
+</div>
+
+<div class="log-box">
+    <div class="header">
+        ورود به
+        اکانت کاربری
+    </div>
+    <div class="item">
+        <input class="item-box" style="width: 100%">
+    </div>
+    <div class="item">
+        <input class="item-box">
+
+        <div class="btn">
+            <div class="btn-icon"></div>
+        </div>
+    </div>
+<div class="forget-pass">
+    رمز خود را فراموش کرده اید
+    <span>
+        کلیک کنید
+    </span>
+</div>
+    <div class="sign-up">
+        در سایت عضو شوید
+    </div>
+</div>
+<div class="log-box" style="display: none;">
+    <div class="header">
+        ثبت نام در سايت
+
+    </div>
+    <div class="item">
+        <input class="item-box" style="width: 100%">
+    </div>
+    <div class="item">
+        <input class="item-box" style="width: 100%">
+    </div>
+    <div class="item">
+        <input class="item-box" style="width: 100%">
+    </div>
+
+    <div class="item">
+        <input class="item-box">
+
+        <div class="btn">
+            <div class="btn-icon"></div>
+        </div>
+    </div>
+
+</div>
+</body>
+
+</html>
